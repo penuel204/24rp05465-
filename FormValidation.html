@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Form Validation</Form></title>
+<style>
+input[type="text"]
+{
+width: 250px; height: 30px; border-radius: 5px; color:
+}
+input[type="password"]
+{
+width: 250px; height: 30px; border-radius:5px; color: blue; 
+}
+button
+{
+width: 150px; height: 40px;
+cursor: pointer;
+background-color: blue;
+font-size: 20px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+border: none;
+border-radius: 5px;
+margin-left: 50px;}
+body
+{
+text-align: center;
+}
+fieldset
+{
+width: 500px;
+margin-left: 400px;
+margin-top: 70px; border-radius: 20px; background-color: whitesmoke;
+border: 40px;
+color: black;
+}
+label
+{
+font-size: 20px;
+}
+#res{background-color: brown;}
+</style>
+</head>
+<body style="background-color: rgb(52, 72, 109);">
+<fieldset>
+<form id="myform">
+<h1 style="font-size: 40px; color: blue;">Form Validation</h1>
+<hr style="color: blue;height: 10px; background-color: blue;">
+<label><b>Firstname:</b><br><input type="text" name="Frist_Name" placeholder="Type Firstname"></label><br><br>
+<label><b>Last Name:</b><br><input type="text" name="Last_Name" placeholder="Type LastName"></label><br><br>
+<label><b>Password: </b><br>&nbsp;<input type="password" name="Password" placeholder="Type Password"></label><br><br>
+<button type="submit">submit</button><button type="reset" id="res">Reset</button>
+</form>
+</fieldset>
+<script>
+document.getElementById('myform').addEventListener('submit', function(event){
+const input=this.querySelectorAll('input[type="text"],input[type="password"]');
+let emptyFields=[];
+input.forEach(input=>{
+if(input.value.trim()=== ''){
+emptyFields.push(input.name);
+}
+});
+if(emptyFields.length>0){
+alert("Please Fill Form : " + emptyFields.join("  ,     "));
+event.preventDefault();
+}
+});
+</script>
+</body>
+</html>
